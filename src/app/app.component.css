@@ -1,0 +1,318 @@
+body
+{
+  background-color:white;
+  font-size:100%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  color:#212063;
+  text-decoration:none;
+}
+.title
+{
+  font-size:100%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:#212063;
+}
+.topbar
+{
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-size:90%;
+  font-weight:bold;
+  color:#FFFFFF;
+  background-image:url(/exlibris/aleph/u22_1/alephe/www_f_eng/icon/f-top-bar.jpg);
+}
+.middlebar
+{
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-size:90%;
+  font-weight:bold;
+  color:#212063;
+  background-image:url(/exlibris/aleph/u22_1/alephe/www_f_eng/icon/f-middle-bar.jpg);
+}
+.bottombar
+{
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-size:90%;
+  font-weight:bold;
+  color:#212063;
+  background-image:url(/exlibris/aleph/u22_1/alephe/www_f_eng/icon/f-bottom-bar.jpg);
+}
+.feedbackbar
+{
+  font-size:100%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:#4F7400;
+  background-image:url(/exlibris/aleph/u22_1/alephe/www_f_eng/icon/f-feedback.jpg);
+}
+.bar
+{
+  font-size:100%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:#212063;
+  background-image:url(/exlibris/aleph/u22_1/alephe/www_f_eng/icon/f-bar.jpg);
+}
+.indent1
+{
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  margin-left:5%;
+}
+.copyright
+{
+  font-size:70%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  color:#6F6F6F;
+  text-align:center;
+}
+.text1
+{
+  font-size:80%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:normal;
+  color:#212063;
+}
+.text2
+{
+  font-size:100%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:red;
+}
+.text3
+{
+  font-size:100%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:#212063;
+}
+#small
+{
+  font-size:80%;
+}
+#italics
+{
+  font-style: italic;
+}
+.text9
+{
+  font-size:100%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:normal;
+  color:#212063;
+}
+#italics
+{
+  font-style: italic;
+}
+#bold
+{  
+  font-weight:bold;
+}
+.campus
+{
+  font-size:100%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial,Helvetica,serif;
+  font-weight:normal;
+  color:#FFFFFF;
+  background-color:#333399;
+}
+
+.campus_line
+{
+  font-size:100%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial,Helvetica,serif;
+  font-weight:normal;
+  color:#000000;
+  background-color:#FFFFFF;
+}
+#yellow
+{
+  background-color:#FFCC00;
+}
+
+.td1
+{
+  font-size:80%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:normal;
+  color:#212063;
+  background-color:#F5F6F7;
+}
+#bold
+{  
+  font-weight:bold;
+}
+#centered
+{
+  text-align: center;
+}
+#right
+{
+  text-align: right;
+}
+.td2
+{
+  font-size:100%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:#212063;
+  background-color:#E2E9F0;
+}
+#small
+{
+  font-size:80%;
+}
+a:link
+{
+  color:#212063;
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+}
+a:visited
+{
+  color:#212063;
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+}
+a:active
+{
+  color:#212063;
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+}
+a.blue:link
+{
+  font-size:80%;
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:#212063;
+  text-align:center;
+  text-decoration: none;
+}
+a.blue:visited
+{
+  font-size:80%;
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:#212063;
+  text-align:center;
+  text-decoration: none;
+}
+a.blue:hover
+{
+  color:#FF6600;
+}
+.d-topbar
+{
+  font-weight:bold;
+  color:#FFFFFF;
+  background-color:#3F8CB2
+}
+.d-middlebar
+{
+  font-family:'Lucida Sans Unicode',Arial,Helvetica,serif;
+  font-weight:bold;
+  color:#212063;
+  background-color: #D4E1F1
+}
+.d-bottombar
+{
+  font-family:'Lucida Sans Unicode',Arial,Helvetica,serif;
+  font-weight:bold;
+  color:#212063;
+  background-color:#D9E8F0
+}
+
+.avail
+{
+  font-size:100%;
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:#212063;
+  background-color:#E2E9F0;
+}
+
+.notavail
+{
+  font-size:100%;
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:#212063;
+  background-color:#000000;
+}
+
+.loaned
+{
+  font-size:100%;
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:#212063;
+  background-color:#999999;
+}
+
+.booked
+{
+  font-size:100%;
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:#212063;
+  background-color:#505050;
+}
+
+.td3
+{
+  font-size:80%;
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial,Helvetica,serif;
+  font-weight:normal;
+  color:#212063;
+  background-color:#FFFF99;
+}
+
+#Btn {
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+#Btn span {
+  font-size:80%;
+  font-weight:bold;
+  background-color: #F7FAFC;
+  padding-right: 5px;
+  padding-left: 1px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+  border-width: medium;
+  border-style: solid;
+  border-top-color: #68A6C4;
+  border-right-color: #3F6382;
+  border-bottom-color: #3F738D;
+  border-left-color: #7AAFCA;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+}
+.msg
+{
+  font-size:100%;
+  font-family:'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
+  font-weight:bold;
+  color:#4F7400;
+}
+
+.pickup_class
+{
+    position:absolute;
+    left:8px;
+}
+
+.delivery_class
+{
+    position:absolute;
+    left:8px;
+}
+form
+{
+    display:inline;
+}
+a.specialLink
+{
+   color: #ffffff;
+}
