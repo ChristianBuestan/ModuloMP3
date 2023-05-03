@@ -1,3 +1,10 @@
+td#titulo{
+  font-size:100%;
+  font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial,Helvetica,serif;
+  font-weight:normal;
+  color:#FFFFFF;
+  background-color:#6868cc;
+}
 body
 {
   background-color:white;

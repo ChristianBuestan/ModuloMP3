@@ -4,10 +4,10 @@
   <body>
     <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0"> 
       <tbody><tr> 
-       <td class="bar" width="20%" align="center" nowrap=""> 
+       <!-- <td class="bar" width="20%" align="center" nowrap=""> 
          &nbsp; 
-       </td> 
-       <td class="bar" align="center" nowrap=""> 
+       </td>  -->
+       <td class="bar" align="center" nowrap="" id="titulo"> 
            <!-- <a href="https://aleph.ups.edu.ec/F/S3NNKCD63D5LEURQGIL625DA8T6IFLUPHPND71F792EJGBJX7A-17705?func=find-b-0" title="Búsqueda básica" class="blue"> 
               Búsqueda básica</a>  -->
             <p>
@@ -31,22 +31,47 @@
       <td class="td2" valign="top" nowrap="">Campo de búsqueda 
       </td>
       <td class="td2" id="small"> 
-        <!-- filename: find-code-include --> 
-            <select name="find_code"> 
-             <option value="WRD">Todos los campos</option> 
-             <option value="WTI">Palabras en título</option> 
-             <option value="TIT">Título exacto</option> 
-             <option value="WAU">Autor</option> 
-             <option value="WSU">Genero</option> 
-             <option value="WD1">Área temática 1</option> 
-             <option value="WD2">Área temática 2</option> 
-             <option value="WSR">Palabras en la serie</option> 
-             <option value="BAR">Código de cancion</option> 
-             <option value="SUD">No.Volumen</option>
-             
-            </select> 
+        <select name="find_code"> 
+          <option value="WRD">Todos los campos</option> 
+          <option value="WTI">Palabras en título</option> 
+          <option value="TIT">Título exacto</option> 
+          <option value="WAU">Autor</option> 
+          <option value="WSU">Genero</option> 
+          <option value="WD1">Área temática 1</option> 
+          <option value="WD2">Área temática 2</option> 
+          <option value="WSR">Palabras en la serie</option> 
+          <option value="BAR">Código de cancion</option> 
+          <option value="SUD">No.Volumen</option>
+          
+        </select> 
          
-          </td>
+      </td>
+
+    </tr>
+    <tr>
+      <td class="td2" title="Palabras que esten seguidas"> 
+        Palabras adyacentes? 
+      </td>
+      <td class="td2">
+        <input type="radio" name="adjacent" checked="" value="N"> No 
+        <input type="radio" name="adjacent" value="Y"> Si 
+      </td>
+    </tr>
+    <tr>
+      <td class="td2" valign="top" nowrap="" title="Grupos creados para mejor busqueda">Coleccion
+      </td>
+      <td class="td2" id="small"> 
+        <select name="find_code"> 
+          <option value="ANY">Cualquiera</option> 
+          <option value="IND">Independientes</option> 
+          <option value="TRD">Tradicionales</option> 
+          <option value="ART">Bandas artísticas</option> 
+          <option value="EMP">Empresarial</option> 
+          <option value="AMB">Ambiental</option>
+          
+        </select> 
+         
+      </td>
     </tr>
   </tbody>
 </html>
