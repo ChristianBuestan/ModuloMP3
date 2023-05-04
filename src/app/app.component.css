@@ -1,9 +1,12 @@
 td#titulo{
-  font-size:100%;
+  font-size:120%;
   font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial,Helvetica,serif;
   font-weight:normal;
-  color:#FFFFFF;
-  background-color:#6868cc;
+  color:#212063;
+  background-color:#9797dd;
+  box-shadow: 0px 0px 0px 2px #9fb4f2;
+  text-shadow: 0px 1px 0xp #9fb4f2;
+  padding: 12px 17px;
 }
 body
 {
@@ -23,7 +26,7 @@ body
 .topbar
 {
   font-family:verdana, calibri,'Lucida Sans Unicode','Arial Unicode MS',Arial, Helvetica, serif;
-  font-size:90%;
+  font-size:200%;
   font-weight:bold;
   color:#FFFFFF;
   background-image:url(/exlibris/aleph/u22_1/alephe/www_f_eng/icon/f-top-bar.jpg);
@@ -322,4 +325,27 @@ form
 a.specialLink
 {
    color: #ffffff;
+}
+.myButton {
+	box-shadow: 0px 0px 0px 1px #9fb4f2;
+	background:linear-gradient(to bottom, #ebecee 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+	padding:12px 27px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #f3f6ff;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #f7f7f7 100%);
+	background-color:#476e9e;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
 }
