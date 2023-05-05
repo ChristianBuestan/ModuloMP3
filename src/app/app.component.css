@@ -349,3 +349,26 @@ a.specialLink
 	position:relative;
 	top:1px;
 }
+.nav-logo-img {
+  width: 200px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+* {
+  --color_gray_dark: var(--gray-700) !important;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+user agent stylesheet
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
