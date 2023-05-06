@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class BusquedaComponent {
   tittle="busqueda"
+  displayedColumns=Array;
+  musicList=Array;
+  play(any:any){
+
+  }
 }
+
