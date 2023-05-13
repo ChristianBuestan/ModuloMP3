@@ -1,7 +1,6 @@
 <html>
 
   <head></head>
-  <body>
     <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0"> 
       <tbody><tr> 
        <td class="bar" width="20%" align="center" nowrap=""> 
@@ -16,7 +15,6 @@
        </td> 
       </tr> 
      </tbody></table>
-  </body>
   <div class="title">Busqueda basica </div>
   <table cellspacing="2" border="0" cellpadding="0" width="100%">
   <tbody>
@@ -136,9 +134,9 @@
     </tr> 
    </tbody>
   </table>
+  <!-- Seccion de tablas -->
   <div class="music-list">
-    <!-- <table mat-table <--[dataSource]="musicList" class="music-list"> -->
-    <table mat-table class="music-list">
+    <table mat-table [dataSource]="musicList" class="music-list"> 
         <ng-container matColumnDef="title">
             <th mat-header-cell *matHeaderCellDef>Title</th>
             <td mat-cell *matCellDef="let music; let i = index;">
@@ -153,6 +151,11 @@
             <th mat-header-cell *matHeaderCellDef>Album</th>
             <td mat-cell *matCellDef="let music">{{ music.album }}</td>
         </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Accion</th>
+          <button mat-raised-button color="primary" (click)="play()">Primary</button>
+      </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row
           *matRowDef="let row; columns: displayedColumns;"></tr>

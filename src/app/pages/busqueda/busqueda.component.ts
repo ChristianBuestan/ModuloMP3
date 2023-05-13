@@ -39,12 +39,13 @@ export class BusquedaComponent {
     }
     
     
-  
+    
+    
 
   }
   musicList: Music[] = [];
   
-  displayedColumns: string[] = ['title', 'artist', 'album'];
+  displayedColumns: string[] = ['title', 'artist', 'album','actions'];
   trackPointer: number = 0;
   currentMusic: Music = {
     album: "",
@@ -52,6 +53,8 @@ export class BusquedaComponent {
     artist: "",
     url: ""
   }
+
+  
   play(index?: number): void {
     if (index === undefined) {
       if (this.audio.paused) {
