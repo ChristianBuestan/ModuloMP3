@@ -14,7 +14,10 @@ export class BusquedaComponent {
   duration: number = 1;
   currentTime: string = '0:00';
 
+
   constructor(){
+    this.audio.src="../assets/BATTLE.mp3"
+    
     this.audio.ondurationchange = () => {
         const totalSeconds = Math.floor(this.audio.duration),
               duration = moment.duration(totalSeconds, 'seconds');

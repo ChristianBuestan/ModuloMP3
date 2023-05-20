@@ -134,6 +134,7 @@
     </tr> 
    </tbody>
   </table>
+  <button mat-raised-button color="primary" (click)="play()">Play</button>
   <!-- Seccion de tablas -->
   <div class="music-list">
     <table mat-table [dataSource]="musicList" class="music-list"> 
@@ -153,7 +154,7 @@
         </ng-container>
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef>Accion</th>
-          <button mat-raised-button color="primary" (click)="play()">Primary</button>
+          <button mat-raised-button color="primary" (click)="play()">Tocar/Pausar</button>
       </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
