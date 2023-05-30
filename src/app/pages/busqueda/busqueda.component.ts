@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import * as moment from 'moment';
 import { Music } from 'src/app/domains/music';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-busqueda',
@@ -17,9 +19,16 @@ export class BusquedaComponent {
 
   searchQuery!: string;
   aaudio!: string;
-
-  constructor(){
-    this.audio.src="../assets/BATTLE.mp3"
+  audioList: any[] = [];
+  currentMusic: Music = {
+    album: "",
+    title: "",
+    artist: "",
+    url: ""
+  }
+  musicList: Music[] = [];
+  constructor(private sanitizer: DomSanitizer){
+    /*
     
     this.audio.ondurationchange = () => {
         const totalSeconds = Math.floor(this.audio.duration),
@@ -42,13 +51,32 @@ export class BusquedaComponent {
           0${duration.seconds()}` : 
           `${Math.floor(duration.asMinutes())}:
           ${duration.seconds()}`;
-    }
+    }*/
     
     
     
     
 
   }
+  ngOnInit() {
+    this.getAudioFiles();
+  }
+  getAudioFiles() {
+    const audioFolder = 'assets/Mp3/'; // Ruta de la carpeta que contiene los archivos MP3
+    const audioFileExtension = '.mp3'; // Extensión de los archivos MP3
+  
+    for (let i = 1; i <= 14; i++) {
+      const audioFile = audioFolder + 'audio' + i + audioFileExtension;
+      const audio = {
+        src: this.sanitizer.bypassSecurityTrustResourceUrl(audioFile),
+        title: 'Audio ' + i
+      };
+      this.currentMusic.title=audio.title;
+      this.musicList.push(this.currentMusic);
+      this.audioList.push(audio);
+    }
+  }
+
 
   buscarCancion() {
     const cancion = this.searchQuery + '.mp3';
@@ -56,16 +84,11 @@ export class BusquedaComponent {
     this.audio.src = rutaCancion; //adapto mi ruta a mi audio
   }
 
-  musicList: Music[] = [];
+  
   
   displayedColumns: string[] = ['title', 'artist', 'album','actions'];
   trackPointer: number = 0;
-  currentMusic: Music = {
-    album: "",
-    title: "",
-    artist: "",
-    url: ""
-  }
+  
 
   
   play(index?: number): void {

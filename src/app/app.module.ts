@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { DomSanitizer } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BusquedaComponent } from './pages/busqueda/busqueda.component';
@@ -27,7 +27,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatButtonModule,
     MatSliderModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
     
   ],
   providers: [],
