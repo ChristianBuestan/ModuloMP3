@@ -23,7 +23,7 @@
         Escriba una palabra o frase 
       </td>
       <td class="td2" id="small"> 
-        <input size="40" name="request" value=""> 
+        <input type="text" ng-model="searchQuery" size="40" name="request" value=""> 
       </td>
     </tr>
     <tr>
@@ -76,10 +76,15 @@
       <td class="td2" colspan="2" valign="middle" align="left" nowrap=""> 
         <a href="#" class="myButton">Enviar</a>
         <a href="#" class="myButton">Limpiar</a>
+        
+      </td> 
+     </tr>
+     <tr>
+      <button mat-raised-button color="primary" (click)="play()">Play</button>
+        <button ng-click="buscarCancion()">Buscar</button>
         <audio ng-if="audio" controls>
           <!-- <source ng-src="{{ audio }}" type="audio/mpeg"> EDITAR--> 
         </audio>
-      </td> 
      </tr>
   </tbody>
   </table>

@@ -7,6 +7,7 @@ import { Music } from 'src/app/domains/music';
   templateUrl: './busqueda.component.html',
   styleUrls: ['./busqueda.component.css']
 })
+
 export class BusquedaComponent {
   tittle="ReproductorMP3"
   audio = new Audio();
@@ -14,6 +15,8 @@ export class BusquedaComponent {
   duration: number = 1;
   currentTime: string = '0:00';
 
+  searchQuery!: string;
+  aaudio!: string;
 
   constructor(){
     this.audio.src="../assets/BATTLE.mp3"
@@ -46,6 +49,13 @@ export class BusquedaComponent {
     
 
   }
+
+  buscarCancion() {
+    const cancion = this.searchQuery + '.mp3';
+    const rutaCancion = 'assets/' + cancion;
+    this.aaudio = rutaCancion;
+  }
+  
   musicList: Music[] = [];
   
   displayedColumns: string[] = ['title', 'artist', 'album','actions'];
