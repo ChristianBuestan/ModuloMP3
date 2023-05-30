@@ -53,9 +53,9 @@ export class BusquedaComponent {
   buscarCancion() {
     const cancion = this.searchQuery + '.mp3';
     const rutaCancion = 'assets/' + cancion;
-    this.aaudio = rutaCancion;
+    this.audio.src = rutaCancion; //adapto mi ruta a mi audio
   }
-  
+
   musicList: Music[] = [];
   
   displayedColumns: string[] = ['title', 'artist', 'album','actions'];
