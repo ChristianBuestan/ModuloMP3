@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import * as moment from 'moment';
 import { Music } from 'src/app/domains/music';
-import { DomSanitizer } from '@angular/platform-browser';
-
 
 @Component({
   selector: 'app-busqueda',
@@ -18,17 +16,12 @@ export class BusquedaComponent {
   currentTime: string = '0:00';
 
   searchQuery!: string;
-  aaudio!: string;
-  audioList: any[] = [];
-  currentMusic: Music = {
-    album: "",
-    title: "",
-    artist: "",
-    url: ""
-  }
-  musicList: Music[] = [];
-  constructor(private sanitizer: DomSanitizer){
-    
+
+  fileName: string="";
+
+  audioSrc!: string;
+
+  constructor(){
     
     this.audio.ondurationchange = () => {
         const totalSeconds = Math.floor(this.audio.duration),
@@ -58,40 +51,25 @@ export class BusquedaComponent {
     
 
   }
-  ngOnInit() {
-    //this.getAudioFiles();
-  }
-  getAudioFiles() {
-    const audioFolder = 'assets/Mp3'; // Ruta de la carpeta que contiene los archivos MP3
-    const audioFileExtension = '.mp3'; // Extensión de los archivos MP3
-    
-    for (let i = 1; i <= 14; i++) {
-      const audioFile = audioFolder + 'audio' + i + audioFileExtension;
-      const audio = {
-        src: this.sanitizer.bypassSecurityTrustResourceUrl(audioFile),
-        title: 'Audio ' + i
-      };
-      this.currentMusic.title=audio.title;
-      this.musicList.push(this.currentMusic);
-      
-      this.audioList.push(audio);
-      
-    }
-    console.log(this.musicList)
-  }
 
-
-  buscarCancion() {
-    const cancion = this.searchQuery + '.mp3';
-    const rutaCancion = 'assets/' + cancion;
-    this.audio.src = rutaCancion; //adapto mi ruta a mi audio
+  loadAndPlayAudio(): void {
+    console.log(this.fileName)
+    this.audioSrc = `assets/${this.fileName}.mp3`;
+    console.log(this.audioSrc)
+    this.audio.src=this.audioSrc;
   }
+ 
 
-  
+  musicList: Music[] = [];
   
   displayedColumns: string[] = ['title', 'artist', 'album','actions'];
   trackPointer: number = 0;
-  
+  currentMusic: Music = {
+    album: "",
+    title: "",
+    artist: "",
+    url: ""
+  }
 
   
   play(index?: number): void {
@@ -127,12 +105,7 @@ export class BusquedaComponent {
     this.audio.currentTime = event.value;
   }
 
-  /*getAllMusic(): Observable<Music[]> {
-    return this.store
-      .collection('music', 
-      ref => ref.orderBy('title'))
-      .valueChanges({ idField: 'id' }).pipe() as Observable<Music[]>;
-  }*/
+  
   next(): void {
     this.trackPointer++;
     this.currentMusic = this.musicList[this.trackPointer];

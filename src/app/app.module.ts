@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { MatSliderModule } from '@angular/material/slider';
     MatSliderModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    
+    FormsModule
     
   ],
   providers: [],
