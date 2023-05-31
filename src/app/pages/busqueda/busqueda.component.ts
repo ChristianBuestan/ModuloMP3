@@ -28,7 +28,7 @@ export class BusquedaComponent {
   }
   musicList: Music[] = [];
   constructor(private sanitizer: DomSanitizer){
-    /*
+    
     
     this.audio.ondurationchange = () => {
         const totalSeconds = Math.floor(this.audio.duration),
@@ -51,7 +51,7 @@ export class BusquedaComponent {
           0${duration.seconds()}` : 
           `${Math.floor(duration.asMinutes())}:
           ${duration.seconds()}`;
-    }*/
+    }
     
     
     
@@ -59,12 +59,12 @@ export class BusquedaComponent {
 
   }
   ngOnInit() {
-    this.getAudioFiles();
+    //this.getAudioFiles();
   }
   getAudioFiles() {
-    const audioFolder = 'assets/Mp3/'; // Ruta de la carpeta que contiene los archivos MP3
+    const audioFolder = 'assets/Mp3'; // Ruta de la carpeta que contiene los archivos MP3
     const audioFileExtension = '.mp3'; // Extensión de los archivos MP3
-  
+    
     for (let i = 1; i <= 14; i++) {
       const audioFile = audioFolder + 'audio' + i + audioFileExtension;
       const audio = {
@@ -73,8 +73,11 @@ export class BusquedaComponent {
       };
       this.currentMusic.title=audio.title;
       this.musicList.push(this.currentMusic);
+      
       this.audioList.push(audio);
+      
     }
+    console.log(this.musicList)
   }
 
 
