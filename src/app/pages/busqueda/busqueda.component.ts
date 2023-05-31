@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import * as moment from 'moment';
 import { Music } from 'src/app/domains/music';
@@ -15,14 +16,17 @@ export class BusquedaComponent {
   duration: number = 1;
   currentTime: string = '0:00';
 
-  searchQuery!: string;
 
   fileName: string="";
 
   audioSrc!: string;
 
-  constructor(){
-    
+  audioTitles: string[]=[];
+
+  constructor(private http: HttpClient){
+
+    this.audioTitles = [];
+
     this.audio.ondurationchange = () => {
         const totalSeconds = Math.floor(this.audio.duration),
               duration = moment.duration(totalSeconds, 'seconds');
@@ -45,16 +49,15 @@ export class BusquedaComponent {
           `${Math.floor(duration.asMinutes())}:
           ${duration.seconds()}`;
     }
-    
-    
-    
-    
 
+  }
+  ngOnInit() {
+    this.getAudioFileNames();
   }
 
   loadAndPlayAudio(): void {
     console.log(this.fileName)
-    this.audioSrc = `assets/${this.fileName}.mp3`;
+    this.audioSrc = `assets/Mp3/${this.fileName}.mp3`;
     console.log(this.audioSrc)
     this.audio.src=this.audioSrc;
   }
@@ -62,8 +65,9 @@ export class BusquedaComponent {
 
   musicList: Music[] = [];
   
-  displayedColumns: string[] = ['title', 'artist', 'album','actions'];
-  trackPointer: number = 0;
+  displayedColumns: string[] = ['title','actions' /*, 'artist', 'album'*/];
+  trackPointer: number = 0
+  
   currentMusic: Music = {
     album: "",
     title: "",
@@ -71,8 +75,13 @@ export class BusquedaComponent {
     url: ""
   }
 
-  
+  tocarAudio(fileName:string){
+    this.fileName=fileName
+    console.log(fileName)
+    this.loadAndPlayAudio()
+  }
   play(index?: number): void {
+
     if (index === undefined) {
       if (this.audio.paused) {
         if (this.audio.readyState === 0) {
@@ -112,5 +121,10 @@ export class BusquedaComponent {
     this.audio.src = this.currentMusic.url;
     this.audio.play();
   }
-
+  getAudioFileNames() {
+    this.http.get<any[]>('assets/mp3-files.json').subscribe(response => {
+      this.audioTitles= response.map(file => file.name);
+      console.log(this.audioTitles)
+    });
+  }
 }
