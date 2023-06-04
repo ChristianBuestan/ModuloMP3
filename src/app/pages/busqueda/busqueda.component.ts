@@ -15,7 +15,8 @@ export class BusquedaComponent {
   musicLength: string = '0:00';
   duration: number = 1;
   currentTime: string = '0:00';
-
+  
+  filtro:string="";
 
   fileName: string="";
 
@@ -53,6 +54,7 @@ export class BusquedaComponent {
   }
   ngOnInit() {
     this.getAudioFileNames();
+
   }
 
   loadAndPlayAudio(): void {

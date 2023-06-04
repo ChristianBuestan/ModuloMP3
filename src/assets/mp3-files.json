@@ -1,5 +1,16 @@
 [
     { "name": "01 Dires Irae,Dires Illa" },
+    { "name": "02 Invitatorio De Difuntos" },
+    { "name": "03 Requiem Aeternam" },
     { "name": "04 Kyrie Eleison" },
-    { "name": "13 Salve Mater" }
+    { "name": "05 Ave Verum" },
+    { "name": "06 Adoro Te Devote" },
+    { "name": "07 Veni Sancte Spiritus" },
+    { "name": "08 Veni Creator Spiritus" },
+    { "name": "09 Cantico Zacarias" },
+    { "name": "10 Salve Regina" },
+    { "name": "11 Alma Redentoris" },
+    { "name": "12 Ave Regina" },
+    { "name": "13 Salve Mater" },
+    { "name": "14 Salve Mater" } 
   ]
