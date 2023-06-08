@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import * as moment from 'moment';
 import { Music } from 'src/app/domains/music';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-busqueda',
@@ -16,13 +17,16 @@ export class BusquedaComponent {
   duration: number = 1;
   currentTime: string = '0:00';
   
-  filtro:string="";
 
   fileName: string="";
 
   audioSrc!: string;
 
   audioTitles: string[]=[];
+
+  dataSource!: MatTableDataSource<any>;
+  searchText!: string;
+
 
   constructor(private http: HttpClient){
 
@@ -54,7 +58,7 @@ export class BusquedaComponent {
   }
   ngOnInit() {
     this.getAudioFileNames();
-
+    this.filteredData= this.audioTitles.slice(); 
   }
 
   loadAndPlayAudio(): void {
@@ -64,7 +68,7 @@ export class BusquedaComponent {
     this.audio.src=this.audioSrc;
   }
  
-
+  data!:any[];
   musicList: Music[] = [];
   
   displayedColumns: string[] = ['title','actions' /*, 'artist', 'album'*/];
@@ -76,6 +80,7 @@ export class BusquedaComponent {
     artist: "",
     url: ""
   }
+  filteredData!:any[]
 
   tocarAudio(fileName:string){
     this.fileName=fileName
@@ -108,13 +113,18 @@ export class BusquedaComponent {
     this.audio.src = this.currentMusic.url;
     this.audio.play();
   }
-  volumeSlider(event: any) {
-    this.audio.volume = event.value / 16;
-  }
+  filtrado(){
+    this.data=this.audioTitles;
+    
 
-  durationSlider(event: any) {
-    this.audio.currentTime = event.value;
+    const filterValue = this.searchText.toLowerCase();
+
+    this.filteredData = this.data.filter(item => {
+        const columnValue = item[this.audioTitles[0]].toLowerCase();
+        return columnValue.includes(filterValue);
+    });
   }
+  
 
   
   next(): void {
@@ -129,4 +139,5 @@ export class BusquedaComponent {
       console.log(this.audioTitles)
     });
   }
+
 }

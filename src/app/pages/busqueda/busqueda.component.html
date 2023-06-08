@@ -23,7 +23,7 @@
         Escriba una palabra o frase 
       </td>
       <td class="td2" id="small"> 
-        <input type="text" [(ngModel)]="filtro" size="40" name="request"> 
+        <input type="text" [(ngModel)]="searchText" size="40" name="request"> 
       </td>
     </tr>
     <tr>
@@ -31,7 +31,7 @@
       </td>
       <td class="td2" id="small"> 
         <select name="find_code"> 
-          <option value="WRD">Todos los campos</option> 
+          <option value="WRD">Ninguno</option> 
           <option value="WTI">Palabras en título</option> 
           <option value="TIT">Título exacto</option> 
           <option value="WAU">Autor</option> 
@@ -74,8 +74,7 @@
     </tr>
     <tr> 
       <td class="td2" colspan="2" valign="middle" align="left" nowrap=""> 
-        <a href="#" class="myButton">Enviar</a>
-        <a href="#" class="myButton">Limpiar</a>
+        <button mat-raised-button color="primary" (click)="filtrado()">Buscar</button>
         
       </td> 
      </tr>
@@ -139,7 +138,7 @@
   </table>
   <!-- Seccion de tablas -->
   <div class="music-list">
-    <table mat-table [dataSource]="audioTitles" class="music-list"> 
+    <table mat-table [dataSource]="filteredData" class="music-list"> 
         <ng-container matColumnDef="title">
             <th mat-header-cell *matHeaderCellDef>Title</th>
             <td mat-cell *matCellDef="let music; let i = index;">
