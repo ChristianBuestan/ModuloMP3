@@ -58,7 +58,7 @@ export class BusquedaComponent {
   }
   ngOnInit() {
     this.getAudioFileNames();
-    this.filteredData= this.audioTitles.slice(); 
+    
   }
 
   loadAndPlayAudio(): void {
@@ -136,7 +136,7 @@ export class BusquedaComponent {
   getAudioFileNames() {
     this.http.get<any[]>('assets/mp3-files.json').subscribe(response => {
       this.audioTitles= response.map(file => file.name);
-      console.log(this.audioTitles)
+      //console.log(this.audioTitles)
     });
   }
 
