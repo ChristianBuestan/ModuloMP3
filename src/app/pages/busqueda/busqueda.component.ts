@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import * as moment from 'moment';
 import { Music } from 'src/app/domains/music';
 import { MatTableDataSource } from '@angular/material/table';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-busqueda',
@@ -28,9 +29,9 @@ export class BusquedaComponent {
   searchText!: string;
 
 
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient,private sanitizer: DomSanitizer){
 
-    this.audioTitles = [];
+
 
     this.audio.ondurationchange = () => {
         const totalSeconds = Math.floor(this.audio.duration),
@@ -71,7 +72,7 @@ export class BusquedaComponent {
   data!:any[];
   musicList: Music[] = [];
   
-  displayedColumns: string[] = ['title','actions' /*, 'artist', 'album'*/];
+  displayedColumns: string[] = ['miniatura','title','actions' /*, 'artist', 'album'*/];
   trackPointer: number = 0
   
   currentMusic: Music = {
@@ -120,7 +121,7 @@ export class BusquedaComponent {
     const filterValue = this.searchText.toLowerCase();
 
     this.filteredData = this.data.filter(item => {
-        const columnValue = item[this.audioTitles[0]].toLowerCase();
+        const columnValue = item[this.audioTitles[1]].toLowerCase();
         return columnValue.includes(filterValue);
     });
   }
@@ -138,6 +139,10 @@ export class BusquedaComponent {
       this.audioTitles= response.map(file => file.name);
       //console.log(this.audioTitles)
     });
+  }
+  getSafeImageURL(imagePath: string): SafeResourceUrl {
+    const imageUrl = `assets/${imagePath}`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(imageUrl);
   }
 
 }
