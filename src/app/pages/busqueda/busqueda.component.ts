@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import * as moment from 'moment';
 import { Music } from 'src/app/domains/music';
 import { MatTableDataSource } from '@angular/material/table';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-busqueda',
@@ -29,9 +29,9 @@ export class BusquedaComponent {
   searchText!: string;
 
 
-  constructor(private http: HttpClient,private sanitizer: DomSanitizer){
+  constructor(private http: HttpClient){
 
-
+    this.audioTitles = [];
 
     this.audio.ondurationchange = () => {
         const totalSeconds = Math.floor(this.audio.duration),
@@ -139,10 +139,6 @@ export class BusquedaComponent {
       this.audioTitles= response.map(file => file.name);
       //console.log(this.audioTitles)
     });
-  }
-  getSafeImageURL(imagePath: string): SafeResourceUrl {
-    const imageUrl = `assets/${imagePath}`;
-    return this.sanitizer.bypassSecurityTrustResourceUrl(imageUrl);
   }
 
 }
