@@ -23,14 +23,14 @@
         Escriba una palabra o frase 
       </td>
       <td class="td2" id="small"> 
-        <input type="text" [(ngModel)]="searchText" size="40" name="request"> 
+        <input type="text"  size="40" name="request"> 
       </td>
     </tr>
     <tr>
       <td class="td2" valign="top" nowrap="">Campo de búsqueda 
       </td>
       <td class="td2" id="small"> 
-        <select name="find_code"> 
+        <select name="find_code" [(ngModel)]="searchText"> 
           <option value="WRD">Ninguno</option> 
           <option value="WTI">Palabras en título</option> 
           <option value="TIT">Título exacto</option> 
