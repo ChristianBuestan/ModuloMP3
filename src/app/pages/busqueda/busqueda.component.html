@@ -173,4 +173,23 @@
           *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
+  <footer>
+    <table>
+      <td>
+        Cancion
+      </td>
+      <td  [innerText]="fileName"></td>
+      <td>
+        Tiempo Restante:
+      </td>
+      <td>
+        <span>{{ duracionAudio }}</span>
+      </td>
+      <button mat-raised-button color="primary" (click)="togglePlay()">
+        <span *ngIf="isPlaying">Parar</span>
+        <span *ngIf="!isPlaying">Tocar</span>
+      </button>
+    </table>
+    
+  </footer>
 </html>

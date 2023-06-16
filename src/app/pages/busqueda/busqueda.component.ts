@@ -16,8 +16,9 @@ export class BusquedaComponent {
   audio = new Audio();
   musicLength: string = '0:00';
   duration: number = 1;
+  duracionAudio:string='';
   currentTime: string = '0:00';
-  
+  isPlaying: boolean = false; 
 
   fileName: string="";
 
@@ -42,6 +43,7 @@ export class BusquedaComponent {
                             `${Math.floor(duration.asMinutes())}:
                             ${duration.seconds()}`;
         this.duration = totalSeconds;
+        this.duracionAudio=totalSeconds.toString();
       }
     
       
@@ -87,6 +89,10 @@ export class BusquedaComponent {
     this.fileName=fileName
     console.log(fileName)
     this.loadAndPlayAudio()
+  }
+  togglePlay() {
+    this.isPlaying = !this.isPlaying;
+    this.play();
   }
   play(index?: number): void {
 
