@@ -143,7 +143,7 @@
           <th mat-header-cell *matHeaderCellDef>
             Miniatura
           </th>
-          <td mat-cell *matCellDef="let item">
+          <td mat-cell *matCellDef="let item" id="caratula">
             <img src="\assets\Portada_cantos _regorianos.jpg" alt="" width="20" height="20"class="nav-logo-img img-fluid">
           </td>
         </ng-container>
@@ -175,20 +175,26 @@
   </div>
   <footer>
     <table>
-      <td>
-        Cancion
-      </td>
-      <td  [innerText]="fileName"></td>
-      <td>
-        Tiempo Restante:
-      </td>
-      <td>
-        <span>{{ duracionAudio }}</span>
-      </td>
-      <button mat-raised-button color="primary" (click)="togglePlay()">
-        <span *ngIf="isPlaying">Parar</span>
-        <span *ngIf="!isPlaying">Tocar</span>
-      </button>
+      <tr>
+        <td>
+          Cancion
+        </td>
+        <td  [innerText]="fileName"></td>
+        
+        <button mat-raised-button color="primary" (click)="togglePlay()">
+          <span *ngIf="isPlaying">Parar</span>
+          <span *ngIf="!isPlaying">Tocar</span>
+        </button>
+      </tr>
+      <tr>
+        <td>
+          Tiempo Restante:
+        </td>
+        <td>
+          {{ tiempoRestante }}
+        </td>
+      </tr>
+      
     </table>
     
   </footer>

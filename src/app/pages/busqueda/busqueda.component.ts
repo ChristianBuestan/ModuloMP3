@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import * as moment from 'moment';
 import { Music } from 'src/app/domains/music';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,14 +12,14 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 
 export class BusquedaComponent {
+
   tittle="ReproductorMP3"
   audio = new Audio();
   musicLength: string = '0:00';
   duration: number = 1;
-  duracionAudio:string='';
   currentTime: string = '0:00';
   isPlaying: boolean = false; 
-
+  tiempoRestante:string='';
   fileName: string="";
 
   audioSrc!: string;
@@ -28,7 +28,7 @@ export class BusquedaComponent {
 
   dataSource!: MatTableDataSource<any>;
   searchText!: string;
-
+  
 
   constructor(private http: HttpClient){
 
@@ -43,7 +43,7 @@ export class BusquedaComponent {
                             `${Math.floor(duration.asMinutes())}:
                             ${duration.seconds()}`;
         this.duration = totalSeconds;
-        this.duracionAudio=totalSeconds.toString();
+        this.tiempoRestante=this.convertirAFormatoCronometro(this.duration);
       }
     
       
@@ -57,12 +57,26 @@ export class BusquedaComponent {
           `${Math.floor(duration.asMinutes())}:
           ${duration.seconds()}`;
     }
+    this.audio.addEventListener('timeupdate', () => {
+      const tiempoActual = this.audio.duration - this.audio.currentTime;
+      this.tiempoRestante = this.convertirAFormatoCronometro(tiempoActual);
+    });
+    
 
   }
+
   ngOnInit() {
     this.getAudioFileNames();
     
   }
+  convertirAFormatoCronometro(tiempo: number): string {
+    const minutos = Math.floor(tiempo / 60);
+    const segundos = Math.floor(tiempo % 60);
+    return `${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
+  }
+  
+ 
+  
 
   loadAndPlayAudio(): void {
     console.log(this.fileName)
@@ -114,6 +128,7 @@ export class BusquedaComponent {
       this.audio.play();
     } 
   }
+  
   prev(): void {
     this.trackPointer--;
     this.currentMusic = this.musicList[this.trackPointer];
@@ -143,7 +158,6 @@ export class BusquedaComponent {
   getAudioFileNames() {
     this.http.get<any[]>('assets/mp3-files.json').subscribe(response => {
       this.audioTitles= response.map(file => file.name);
-      //console.log(this.audioTitles)
     });
   }
 
