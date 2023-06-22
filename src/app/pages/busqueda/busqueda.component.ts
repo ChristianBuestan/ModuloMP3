@@ -3,6 +3,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import * as moment from 'moment';
 import { Music } from 'src/app/domains/music';
 import { MatTableDataSource } from '@angular/material/table';
+import { Cons } from 'rxjs';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class BusquedaComponent {
 
   tittle="ReproductorMP3"
+  progress: number=0;
   audio = new Audio();
   musicLength: string = '0:00';
   duration: number = 1;
@@ -60,6 +62,8 @@ export class BusquedaComponent {
     this.audio.addEventListener('timeupdate', () => {
       const tiempoActual = this.audio.duration - this.audio.currentTime;
       this.tiempoRestante = this.convertirAFormatoCronometro(tiempoActual);
+      const progress = (this.audio.currentTime / tiempoActual) * 100;
+      this.progress=progress;
     });
     
 
