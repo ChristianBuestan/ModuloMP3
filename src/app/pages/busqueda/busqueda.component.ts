@@ -79,10 +79,11 @@ export class BusquedaComponent {
   
 
   loadAndPlayAudio(): void {
-    console.log(this.fileName)
+    this.isPlaying= false; 
     this.audioSrc = `assets/Mp3/${this.fileName}.mp3`;
     console.log(this.audioSrc)
     this.audio.src=this.audioSrc;
+
   }
  
   data!:any[];
@@ -101,7 +102,7 @@ export class BusquedaComponent {
 
   tocarAudio(fileName:string){
     this.fileName=fileName
-    console.log(fileName)
+    //console.log(fileName)
     this.loadAndPlayAudio()
   }
   togglePlay() {
